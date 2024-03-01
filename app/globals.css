@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply transition duration-300  bg-sky-300 px-2 py-1 rounded  text-white hover:bg-sky-800;
+}

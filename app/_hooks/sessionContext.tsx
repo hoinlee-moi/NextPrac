@@ -1,3 +1,4 @@
+"use client";
 import {
   PropsWithChildren,
   createContext,
@@ -24,7 +25,7 @@ type ActionPayloadType =
   | { type: ActionType.SIGNOUT; payload?: null };
 
 const SessionContext = createContext<SessionContextType>({
-  session: { user: null },
+  session: null,
   signin: (id) => {},
   signout: () => {},
 });
@@ -32,28 +33,26 @@ const SessionContext = createContext<SessionContextType>({
 const reducer = (session: Session, { type, payload }: ActionPayloadType) => {
   switch (type) {
     case ActionType.SIGNIN:
-      return { ...payload };
+      return payload;
     case ActionType.SIGNOUT:
-      return { user: null };
+      return null;
     default:
       return session;
   }
 };
 
 const SessionProvider = ({ children }: PropsWithChildren) => {
-  const [session, dispatch] = useReducer(reducer, { user: null });
+  const [session, dispatch] = useReducer(reducer, null);
 
   const signin = async (id: number) => {
-    const data = {
-      user: null,
-    };
     try {
-      const res = await fetch(`${process.env.SERVER}/users/${id}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/users/${id}`);
       const data = await res.json();
+
+      dispatch({ type: ActionType.SIGNIN, payload: data });
     } catch (error) {
       console.error(error);
     }
-    dispatch({ type: ActionType.SIGNIN, payload: data });
   };
 
   const signout = () => dispatch({ type: ActionType.SIGNOUT });
