@@ -4,6 +4,7 @@ import { FormEvent, useRef } from "react";
 
 type InputFormProps = {
   submit: (...args: any) => void;
+  ref:
 };
 
 export default function InputForm({ submit }: InputFormProps) {
