@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { useMyParams } from "@/hooks/useMyParmas";
 import { ButtonTheme, useTheme } from "@/hooks/ThemeContext";
 import { MouseEvent } from "react";
+import { DiDropbox } from "react-icons/di";
 
 export default function TestField() {
   const { setTheme, setColor } = useTheme();
@@ -39,6 +40,9 @@ export default function TestField() {
         </MyButton>
         <MyButton name="destructive" onClick={colorClickHandler}>
           DestructiveColor
+        </MyButton>
+        <MyButton size="icon">
+          <DiDropbox />
         </MyButton>
       </div>
     </div>
