@@ -12,7 +12,7 @@ export default function Form({ session }: { session: Session | null }) {
   const pathname = usePathname();
   const login = async (e: FormData) => {
     try {
-      const response = await fetch("/api/actions/login", {
+      const response = await fetch("/api/user/login", {
         method: "POST",
         body: e,
       });
