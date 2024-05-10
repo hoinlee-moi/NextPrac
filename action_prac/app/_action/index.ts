@@ -21,13 +21,7 @@ export const Login = async (formData: any) => {
 
   // return { message: "success" };
 };
-export const Logout = async () => {
-  try {
-    await signOut();
-  } catch (error) {
-    throw error;
-  }
-};
+export const test = async () => {};
 
 // export const signup = async (formData: FormData) => {
 //   const name = formData.get("name") as string;

@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect } from "react";
-import { Login, Logout } from "../_action";
+import { Login, test } from "../_action";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { revalidatePath } from "next/cache";
@@ -39,13 +39,11 @@ export default function Form({ session }: { session: Session | null }) {
           Login
         </button>
       </form>
-      {session && (
-        <form action={Logout}>
-          <button className="block mx-auto py-2 px-4 mt-3 bg-green-300 rounded">
-            Logout
-          </button>
-        </form>
-      )}
+      <form action={test}>
+        <button className="block mx-auto py-2 px-4 mt-3 bg-green-300 rounded">
+          TEST
+        </button>
+      </form>
     </>
   );
 }

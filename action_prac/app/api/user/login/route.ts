@@ -2,7 +2,7 @@ import { Login } from "@/app/_action";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  console.log("formData");
+  console.log("request", request);
   const form = new FormData();
   form.set("name", "ho");
   form.set("pw", "1232");
